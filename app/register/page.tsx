@@ -18,10 +18,54 @@ const RegisterPage = () => {
       }
     }
 
+    try {
+    const res =  await fetch("/api/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+      })
+     const data =  await res.json(); 
+
+     if(!res.ok){
+      throw new Error(data.error || "Registration Failed");
+     }
+
+     console.log(data);
+     router.push("/login")
+
+    } catch (error) {
+      console.error(error);  
+    }
+ 
 
   return (
     <div>
-      register
+      <h1>Register</h1>
+      <form onSubmit={handleSumit}>
+        <input
+         type="email"
+         placeholder="Email"
+         value={email}
+         onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder='Password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+        type="password"
+        placeholder='Password'
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)} 
+        />
+        </form> 
     </div>
   )
 }
