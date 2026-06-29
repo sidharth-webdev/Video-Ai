@@ -11,7 +11,7 @@ export interface IVideo {
     _id?: mongoose.Types.ObjectId
     title: string;
     description: string;
-    videoUrl: String;
+    videoUrl: string;
     thumbnailUrl: string;
     controls?: boolean;
     transformation?:{
@@ -27,7 +27,7 @@ const videoSchema = new Schema<IVideo>(
         description:{type:String, required:true},
         videoUrl: {type:String, required:true},
         thumbnailUrl:{type:String, required:true},
-        controls: {type:String, default:true},
+        controls: {type:Boolean, default:true},
         transformation:{
             height: {type: Number, default: VIDEO_DIMENSIONS.height},
             width: {type: Number, default: VIDEO_DIMENSIONS.width},
