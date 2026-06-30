@@ -1,4 +1,3 @@
-
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -19,7 +18,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const res = await fetch("/api/auth/register", {
+      const res = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,4 +107,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;      
+export default RegisterPage; 
