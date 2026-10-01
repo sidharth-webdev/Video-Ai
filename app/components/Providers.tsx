@@ -11,4 +11,4 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <ImageKitProvider urlEndpoint={urlEndPoint}>{children}</ImageKitProvider>
     </SessionProvider>
   );
-}   
+}     
